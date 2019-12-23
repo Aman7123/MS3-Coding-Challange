@@ -1,6 +1,6 @@
 # CSV to SQLite
 
-This project was made for Mountain State Software Solutions also known as MS3. This project is made in JAVA and will accept an input on the command line to a CSV file and will parse the file into useable data which is determined by the program and will output a SQLlite database using the sqlite-JDBC library.
+This project was made for Mountain State Software Solutions also known as MS3. This project is made in JAVA and will accept an input on the command line to a CSV file and will parse the file into usable data which is determined by the program and will output a SQLlite database using the sqlite-JDBC library.
 
 ## Getting Started
 
@@ -34,16 +34,18 @@ java -jar .\ms3CodingChallange "C:/Users/Aaron/Documents/csvTest/ms3Interview - 
 
 ## Built With
 
-* [Eclipse IDE](https://www.eclipse.org/) - My prefered IDE of choice
+* [Eclipse IDE](https://www.eclipse.org/) - My preferred IDE of choice
 * [SQLite-JDBC](https://github.com/xerial/sqlite-jdbc) - A great way to get JAVA to connect to a SQLite database
+* [SQLite DB Browser](https://sqlitebrowser.org/dl/) - I recommend this to view the ".db" file my program creates
+
 
 ## Versioning
 
-This project will most likely only recieve this version which I'm listing as V-1.0
+This project will most likely only receive this version which I'm listing as V-1.0
 
 ## Authors
 
-* **Aaron Renner** - *Inital concept work and Senior Developer* - [Aaron Renner](https://github.com/Aman7123)
+* **Aaron Renner** - *Initial concept work and Senior Developer* - [Aaron Renner](https://github.com/Aman7123)
 
 ## License
 
