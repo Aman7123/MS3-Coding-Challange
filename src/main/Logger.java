@@ -11,7 +11,7 @@ public class Logger {
 	
 	public Logger(String directory) {
 		logFile = new File(directory + "\\" + logFileName);
-		System.out.println(logFile.getAbsolutePath());
+		//System.out.println(logFile.getAbsolutePath());
 	}
 	
 	public void logData(String stringToWrite) {

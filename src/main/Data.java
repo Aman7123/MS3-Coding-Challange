@@ -31,10 +31,11 @@ public class Data {
 	 * @param outputDirectory parent folder for CSV file -Where To Output-
 	 */
 	public Data(File csvFile, File outputDirectory, Logger loggerIn) {
+
 		this.outputDirectory = outputDirectory;
 		this.logger = loggerIn;
 		logger.logData("Starting to read CSV" + newline);
-		readCSV(csvFile);
+		split(csvFile);
 		logger.logData("Finished reading and parsing CSV" + newline);
 		logger.logData("Writing bad CSV entries to rejected.csv" + newline);
 		writeMistakes(rejectedLine, this.outputDirectory);
@@ -45,6 +46,7 @@ public class Data {
 	 * Reads the CSV file
 	 * @param csvFile location of CSV file
 	 */
+	/**
 	private void readCSV(File csvFile) {
 		long count = 0;
 		String line = "";
@@ -65,7 +67,7 @@ public class Data {
         } catch (IOException e) {
             e.printStackTrace();
         }
-	}
+	}*/
 	
 	/**
 	 * Call this to get the parsed items in the CSV file
@@ -86,11 +88,47 @@ public class Data {
 			FileWriter writeToFile = new FileWriter(fileLocation + "/" + "ms3CodingChallange - REJECTED.csv");
 			for(String s : inputFile) {
 				writeToFile.append(s + "\n");
-				System.out.println(s);
+				//System.out.println(s);
 			}
 			writeToFile.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * Reads the CSV file
+	 * @param csvFile location of CSV file
+	 */
+	private void split(File csvFile) {
+		long count = 0;
+		String line = "";
+		String quoteSeperator = "\"";
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+            while ((line = br.readLine()) != null) {
+                String[] lineEntry = line.split(quoteSeperator);
+                int lineEntryLength = lineEntry.length;
+                if(count>0) {
+            		if(lineEntryLength >= 3) {
+            			String firstPartWOcomma = lineEntry[0].substring(0, lineEntry[0].lastIndexOf(","));
+            			String lastPartWOComma = lineEntry[2].replaceFirst(",", "");
+            			String[] firstPart = firstPartWOcomma.split(csvSeperator);
+            			String[] lastPart = lastPartWOComma.split(csvSeperator);
+            			if(firstPart.length >= 4 && lastPart.length >= 5) {
+    	            		personEntryPlaceHolder = new PersonEntry(firstPart[0], firstPart[1], firstPart[2], firstPart[3], lineEntry[1], lastPart[0], lastPart[1], lastPart[2], lastPart[3], lastPart[4]);
+    	            		entryArray.add(personEntryPlaceHolder);
+            			} else {
+                			rejectedLine.add(line);
+                		}
+            			
+            		} else {
+            			rejectedLine.add(line);
+            		}
+                }
+                count++;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 	}
 }

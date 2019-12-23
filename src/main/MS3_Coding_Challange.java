@@ -55,8 +55,10 @@ public class MS3_Coding_Challange {
 						dbCommands.insert(PE.getfirstName(), PE.getlastName(), 
 											PE.getemail(), PE.getGender(), PE.getprofileImage(), 
 											PE.getpaymentMethod(), PE.getchargeAmount(), PE.getboolOne(), PE.getboolTwo(), PE.getplace());
+						System.out.println("Wrote info for " + PE.getfirstName() + " to database");
 					}
 					wrapUpTime();
+					System.out.println("Program Complete");
 				}
 				else {
 					popupError("You have given file location but it is read only or does not exist");
@@ -64,7 +66,7 @@ public class MS3_Coding_Challange {
 			
 			}
 		} catch (ArrayIndexOutOfBoundsException e) {
-			popupError("No location to csv file given \n" + e);
+			popupError("No location to csv file given \n");
 		}
 	}
 	

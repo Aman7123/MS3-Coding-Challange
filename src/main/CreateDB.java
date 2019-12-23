@@ -17,6 +17,7 @@ public class CreateDB {
 	private String dbLocation;
 	private Logger logger;
 	private Connection connection;
+	private String newline = "\n";
 	
 	/**
 	 * This method instantiates the database info
@@ -65,7 +66,7 @@ public class CreateDB {
             pstmt.setString(9, boolValueTwo);
             pstmt.setString(10, place);
             pstmt.executeUpdate();
-            logger.logData("Added " + firstName + "," + lastName + " to DB");
+            logger.logData("Added " + firstName + "," + lastName + " to DB" + newline);
         } catch (SQLException e) {  
             System.out.println(e.getMessage());  
         }  
