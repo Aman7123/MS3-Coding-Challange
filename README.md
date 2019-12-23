@@ -11,7 +11,9 @@ The most simple way to run this program is to check out my most recent build of 
 What things you need to do before hand to parse the data.
 
 ```
-I recommend placing your CSV file into its own folder on the PC. This is because my program outputs a CSV file containing bad data, a log file, and the DB file all within the folder the original CSV is in.
+I recommend placing your CSV file into its own folder on the PC. 
+This is because my program outputs a CSV file containing bad data, 
+a log file, and the DB file all within the folder the original CSV is in.
 ```
 
 ### Installing
@@ -20,7 +22,7 @@ If you would like to compile the code yourself, I recommend the eclipse IDE, mak
 
 ## Running with a file
 
-To get the program running I recommend using a Shift + Right Click in the folder that contains my ms3CodingChallenge.jar file and clicking "Open PowrShell window here"
+To get the program running I recommend using a Shift + Right Click in the folder that contains my ms3CodingChallenge.jar file and clicking "Open PowerShell window here"
 
 ### Once the PowerShell window is Open
 
